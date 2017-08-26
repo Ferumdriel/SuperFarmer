@@ -7,6 +7,10 @@ import animals.Animal;
  */
 public class Fox extends Animal{
 
+    public Fox(){
+        friendly = false;
+    }
+
     protected void setExchangeRules() {
 
     }

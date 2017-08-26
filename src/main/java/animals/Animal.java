@@ -1,9 +1,6 @@
 package animals;
 
-import animals.farmAnimals.FarmAnimals;
-
-import java.util.HashMap;
-import java.util.Map;
+import animals.dictionary.FarmAnimals;
 
 /**
  * Created by 20305 on 12.08.2017.
@@ -11,9 +8,11 @@ import java.util.Map;
 public abstract class Animal{
     private String name;
     private ExchangeRules<FarmAnimals> exchangeRules;
+    protected boolean friendly = true;
 
     public Animal(){
         name = getClass().getSimpleName();
+        exchangeRules = new ExchangeRules<>();
         setExchangeRules();
     }
 
@@ -24,15 +23,22 @@ public abstract class Animal{
     }
 
     public int getExchangeCost(FarmAnimals animal){
-        return getExchangeRules().getExchangeCost(animal);
+        return exchangeRules.getExchangeCost(animal);
     }
 
     public int getExchangeGain(FarmAnimals animal){
-        return getExchangeRules().getExchangeGain(animal);
+        return exchangeRules.getExchangeGain(animal);
     }
 
     public ExchangeRules<FarmAnimals> getExchangeRules() {
         return exchangeRules;
     }
 
+    public String toString(){
+        return this.getClass().getSimpleName();
+    }
+
+    public boolean isFriendly(){
+        return friendly;
+    }
 }
