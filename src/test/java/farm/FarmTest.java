@@ -1,4 +1,8 @@
-import animals.farmAnimals.FarmAnimals;
+package farm;
+
+import animals.dictionary.FarmAnimals;
+import animals.dictionary.ViableAnimals;
+import farm.Farm;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -16,11 +20,11 @@ public class FarmTest {
 
     @Test
     public void whenInstantiatedThenAnimalsAreNotNull(){
-        Assert.assertNotNull(farm.getFarmAnimals().get(FarmAnimals.SHEEP));
+        Assert.assertNotNull(farm.getFarmAnimals().get(ViableAnimals.getAnimal(FarmAnimals.SHEEP)));
     }
 
     @Test
-    public void tradeAnimal() throws Exception {
+    public void givenEnoughAnimalsToSellThenTradeAnimals() throws Exception {
         farm.addAnimal(FarmAnimals.RABBIT, 6);
         farm.tradeAnimal(FarmAnimals.RABBIT, FarmAnimals.SHEEP);
         Assert.assertEquals(1, farm.getAmountOfBredAnimals(FarmAnimals.SHEEP));

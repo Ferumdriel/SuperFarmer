@@ -1,5 +1,3 @@
-import animals.farmAnimals.FarmAnimals;
-
 /**
  * Created by 20305 on 13.08.2017.
  */

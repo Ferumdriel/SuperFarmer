@@ -10,8 +10,8 @@ import java.util.Map;
 public class ExchangeRules<T>{
     private Map<T, int[]> viableExchanges;
 
-    public ExchangeRules(Map<T, int[]> viableExchangeObjects){
-        viableExchanges = viableExchangeObjects;
+    public ExchangeRules(){
+        viableExchanges = new HashMap<>();
     }
 
     public int getExchangeCost(T t){
@@ -29,4 +29,8 @@ public class ExchangeRules<T>{
     public Map<T, int[]> getViableExchanges() {
         return viableExchanges;
     }
+
+//    public String toString(){
+//        return "";
+//    }
 }
