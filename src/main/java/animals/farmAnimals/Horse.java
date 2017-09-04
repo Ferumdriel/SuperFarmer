@@ -7,6 +7,11 @@ import animals.Animal;
  */
 public class Horse extends Animal {
 
+    public Horse() {
+        super();
+        fragile = false;
+    }
+
     protected boolean isTradePossible() {
         return false;
     }

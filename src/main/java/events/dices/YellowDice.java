@@ -1,11 +1,11 @@
-package dices;
+package events.dices;
 
 import animals.dictionary.FarmAnimals;
 
 /**
  * Created by 20305 on 26.08.2017.
  */
-public class RedDice extends Dice{
+public class YellowDice extends Dice{
 
     public FarmAnimals getResult(int rollResult){
         FarmAnimals result;
@@ -16,8 +16,8 @@ public class RedDice extends Dice{
         }else if (rollResult == 9){
             result = FarmAnimals.PIG;
         }else if (rollResult == 10){
-            result = FarmAnimals.HORSE;
-        }else result = FarmAnimals.FOX;
+            result = FarmAnimals.COW;
+        }else result = FarmAnimals.WOLF;
         return result;
     }
 }

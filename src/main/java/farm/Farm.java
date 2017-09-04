@@ -6,6 +6,7 @@ import animals.dictionary.ViableAnimals;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 /**
  * Created by 20305 on 13.08.2017.
