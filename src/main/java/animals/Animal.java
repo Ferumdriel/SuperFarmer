@@ -9,6 +9,7 @@ public abstract class Animal{
     private String name;
     private static ExchangeRules<FarmAnimals> exchangeRules;
     protected boolean friendly = true;
+    protected boolean fragile = true;
 
     public Animal(){
         name = getClass().getSimpleName();
@@ -40,5 +41,9 @@ public abstract class Animal{
 
     public boolean isFriendly(){
         return friendly;
+    }
+
+    public boolean isFragile() {
+        return fragile;
     }
 }

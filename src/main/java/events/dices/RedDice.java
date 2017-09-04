@@ -1,11 +1,11 @@
-package dices;
+package events.dices;
 
 import animals.dictionary.FarmAnimals;
 
 /**
  * Created by 20305 on 26.08.2017.
  */
-public class YellowDice extends Dice{
+public class RedDice extends Dice{
 
     public FarmAnimals getResult(int rollResult){
         FarmAnimals result;

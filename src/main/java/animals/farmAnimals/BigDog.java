@@ -7,6 +7,11 @@ import animals.Animal;
  */
 public class BigDog extends Animal{
 
+    public BigDog() {
+        super();
+        fragile = false;
+    }
+
     protected void setExchangeRules() {
 
     }

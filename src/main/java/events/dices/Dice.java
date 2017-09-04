@@ -1,8 +1,7 @@
-package dices;
+package events.dices;
 
 import animals.dictionary.FarmAnimals;
 
-import java.util.Map;
 import java.util.Random;
 
 /**

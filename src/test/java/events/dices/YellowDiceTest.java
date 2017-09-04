@@ -1,4 +1,4 @@
-package dices;
+package events.dices;
 
 import animals.dictionary.FarmAnimals;
 import org.junit.Before;

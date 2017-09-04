@@ -1,6 +1,10 @@
-import dices.DiceRoller;
+import events.Event;
+import events.dices.DiceRoller;
 import farm.Farm;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -8,11 +12,11 @@ import java.util.Scanner;
  */
 public class Game {
     Farm farm;
-    DiceRoller diceRoller;
+    List<Event> events = new LinkedList<>();
 
     public Game(){
         farm = new Farm();
-        diceRoller = new DiceRoller(farm);
+        events.add(new DiceRoller(farm));
     }
 
     public void launch(){
@@ -20,8 +24,9 @@ public class Game {
         sendRulesNotification();
         Scanner sc = new Scanner(System.in);
         do{
-            System.out.println("Rolling the dice");
-            diceRoller.rollTheDice();
+            for(Event event: events){
+                event.performEvent();
+            }
             farm.printCurrentFarmStatus();
             System.out.println("Do you want to continue? (y/n)");
         }
