@@ -31,18 +31,33 @@ public class DiceRoller {
 
     public void giveRewards(FarmAnimals[] rewards){
         Map<FarmAnimals, Integer> rewardCounter = new HashMap<>();
+        rewardCounter = countPositiveRewards(rewardCounter, rewards);
         for (FarmAnimals reward : rewards) {
-            if(ViableAnimals.getAnimal(reward).isFriendly()) {
-                if (rewardCounter.containsKey(reward)) {
-                    rewardCounter.put(reward, rewardCounter.get(reward) + 1);
-                } else rewardCounter.put(reward, 1);
-            }else{
-                System.out.println("Oh no. You were attacked by TheRedFox");
+            if (reward.equals(FarmAnimals.FOX)) {
+                System.out.println("Oh no. You were attacked by Fox");
+            } else if (reward.equals(FarmAnimals.WOLF)) {
+                System.out.println("Oh no. You were attacked by BigBadWolf");
             }
         }
         rewardCounter.forEach((rolledAnimal, timesRolled) ->
             farm.addAnimal(rolledAnimal, (farm.getAmountOfBredAnimals(rolledAnimal) + timesRolled)/2)
         );
+    }
+
+    private Map<FarmAnimals, Integer> countPositiveRewards(Map<FarmAnimals, Integer> rewardCounter, FarmAnimals[] rewards) {
+        for (FarmAnimals reward : rewards) {
+            if (ViableAnimals.getAnimal(reward).isFriendly()) {
+                rewardCounter = increaseCurrentAnimalRewardByOne(rewardCounter, reward);
+            }
+        }
+        return rewardCounter;
+    }
+
+    private Map<FarmAnimals, Integer> increaseCurrentAnimalRewardByOne(Map<FarmAnimals, Integer> rewardCounter, FarmAnimals reward){
+        if (rewardCounter.containsKey(reward)) {
+            rewardCounter.put(reward, rewardCounter.get(reward) + 1);
+        } else rewardCounter.put(reward, 1);
+        return rewardCounter;
     }
 
 

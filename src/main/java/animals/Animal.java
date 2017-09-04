@@ -7,7 +7,7 @@ import animals.dictionary.FarmAnimals;
  */
 public abstract class Animal{
     private String name;
-    private ExchangeRules<FarmAnimals> exchangeRules;
+    private static ExchangeRules<FarmAnimals> exchangeRules;
     protected boolean friendly = true;
 
     public Animal(){

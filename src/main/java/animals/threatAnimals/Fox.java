@@ -1,6 +1,7 @@
 package animals.threatAnimals;
 
 import animals.Animal;
+import animals.dictionary.FarmAnimals;
 
 /**
  * Created by 20305 on 13.08.2017.
