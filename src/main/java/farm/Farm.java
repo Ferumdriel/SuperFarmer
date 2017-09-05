@@ -12,7 +12,7 @@ import java.util.TreeMap;
  * Created by 20305 on 13.08.2017.
  */
 public class Farm {
-    private Map<Animal, Integer> farmAnimals = new HashMap<>();
+    private Map<Animal, Integer> farmAnimals = new TreeMap<>();
 
     public Farm(){
         loadFarmAnimals();
