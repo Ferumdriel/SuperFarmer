@@ -4,6 +4,7 @@
 public class Market<T> {
 
 //    private boolean isTradePossible(T objectlToSell, T objectToBuy){
+//        objectToSell.
 //        return farmAnimals.get(animalToSell) > getExchangeCost(animalToSell, animalToBuy);
 //    }
 }

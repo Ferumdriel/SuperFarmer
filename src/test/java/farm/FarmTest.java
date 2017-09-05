@@ -24,11 +24,19 @@ public class FarmTest {
     }
 
     @Test
-    public void givenEnoughAnimalsToSellThenTradeAnimals() throws Exception {
+    public void givenEnoughAnimalsToSellThenTradeAnimals(){
         farm.addAnimal(FarmAnimals.RABBIT, 6);
         farm.tradeAnimal(FarmAnimals.RABBIT, FarmAnimals.SHEEP);
         Assert.assertEquals(1, farm.getAmountOfBredAnimals(FarmAnimals.SHEEP));
         Assert.assertEquals(0, farm.getAmountOfBredAnimals(FarmAnimals.RABBIT));
+    }
+
+    @Test
+    public void givenNonexistingTradeDemandInformAboutWrongDemand(){
+        farm.addAnimal(FarmAnimals.RABBIT, 50);
+        farm.tradeAnimal(FarmAnimals.RABBIT, FarmAnimals.PIG);
+        Assert.assertEquals(50, farm.getAmountOfBredAnimals(FarmAnimals.RABBIT));
+        Assert.assertEquals(0, farm.getAmountOfBredAnimals(FarmAnimals.PIG));
     }
 
 }

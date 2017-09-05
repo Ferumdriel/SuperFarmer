@@ -4,7 +4,6 @@ import animals.Animal;
 import animals.dictionary.FarmAnimals;
 import animals.dictionary.ViableAnimals;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -20,7 +19,9 @@ public class Farm {
 
     public void tradeAnimal(FarmAnimals animalToSell, FarmAnimals animalToBuy){
         if(isTradePossible(animalToSell, animalToBuy)){
-            finalizeTrade(animalToSell, animalToBuy);
+            if(isTradeAffordable(animalToSell, animalToBuy)){
+                finalizeTrade(animalToSell, animalToBuy);
+            }
         }else{
             System.out.println("Trade is not possible");
         }
@@ -49,14 +50,18 @@ public class Farm {
     }
 
     private boolean isTradePossible(FarmAnimals animalToSell, FarmAnimals animalToBuy){
+        return ViableAnimals.getAnimal(animalToSell).getExchangeRules().getViableExchanges().containsKey(animalToBuy);
+    }
+
+    private boolean isTradeAffordable(FarmAnimals animalToSell, FarmAnimals animalToBuy){
         return getAmountOfBredAnimals(animalToSell) >= getExchangeCost(animalToSell, animalToBuy);
     }
 
-    private int getExchangeCost(FarmAnimals animalToSell, FarmAnimals animalToBuy){
+    private int getExchangeCost(FarmAnimals animalToSell, FarmAnimals animalToBuy)/* throws MissingRuleException*/{
         return ViableAnimals.getAnimal(animalToSell).getExchangeCost(animalToBuy);
     }
 
-    private int getExchangeGain(FarmAnimals animalToSell, FarmAnimals animalToBuy){
+    private int getExchangeGain(FarmAnimals animalToSell, FarmAnimals animalToBuy)/* throws MissingRuleException*/{
         return ViableAnimals.getAnimal(animalToSell).getExchangeGain(animalToBuy);
     }
 

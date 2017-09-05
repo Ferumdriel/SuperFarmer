@@ -1,3 +1,4 @@
+import animals.dictionary.FarmAnimals;
 import events.Event;
 import events.dices.DiceRoller;
 import farm.Farm;
@@ -28,6 +29,16 @@ public class Game {
                 event.performEvent();
             }
             farm.printCurrentFarmStatus();
+            System.out.println("Do you want to trade animal?");
+            if(sc.nextLine().equals("y")){
+                farm.tradeAnimal(FarmAnimals.RABBIT, FarmAnimals.SHEEP);
+//                System.out.println("Which animal?");
+//                System.out.println("rabbit, sheep, pig");
+//                String animalToSell = sc.nextLine();
+//                System.out.println("What to change it for?");
+//                String animalToBuy = sc.nextLine();
+                farm.printCurrentFarmStatus();
+            }
             System.out.println("Do you want to continue? (y/n)");
         }
         while(!sc.nextLine().equals("n"));

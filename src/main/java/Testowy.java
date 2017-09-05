@@ -15,11 +15,13 @@ public class Testowy {
     public static void main(String[] args){
         Map<Animal, Integer> mapa = new HashMap<>();
         Animal rabbit = new Rabbit();
-        System.out.println(rabbit.getExchangeRules());
-        Animal sheep = new Sheep();
-        System.out.println(sheep.getExchangeRules().getExchangeCost(FarmAnimals.RABBIT));
-        Animal pig = ViableAnimals.animals.get(FarmAnimals.PIG);
-        System.out.println(sheep.getExchangeRules().getExchangeCost(FarmAnimals.RABBIT));
+        mapa.put(rabbit, 5);
+        System.out.println(mapa.get(new Rabbit()));
+//        System.out.println(rabbit.getExchangeRules());
+//        Animal sheep = new Sheep();
+//        System.out.println(sheep.getExchangeRules().getExchangeCost(FarmAnimals.RABBIT));
+//        Animal pig = ViableAnimals.animals.get(FarmAnimals.PIG);
+//        System.out.println(sheep.getExchangeRules().getExchangeCost(FarmAnimals.RABBIT));
 //        Animal sheep = new Sheep();
 //        System.out.println(sheep);
 

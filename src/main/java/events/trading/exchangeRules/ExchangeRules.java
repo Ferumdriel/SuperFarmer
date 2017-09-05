@@ -1,7 +1,6 @@
-package animals;
+package events.trading.exchangeRules;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -29,8 +28,4 @@ public class ExchangeRules<T>{
     public Map<T, int[]> getViableExchanges() {
         return viableExchanges;
     }
-
-//    public String toString(){
-//        return "";
-//    }
 }
