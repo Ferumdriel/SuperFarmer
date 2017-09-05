@@ -5,16 +5,20 @@ import animals.dictionary.FarmAnimals;
 /**
  * Created by 20305 on 12.08.2017.
  */
-public abstract class Animal{
+public abstract class Animal implements Comparable<Animal>{
     private String name;
-    private static ExchangeRules<FarmAnimals> exchangeRules;
+    private ExchangeRules<FarmAnimals> exchangeRules;
     protected boolean friendly = true;
     protected boolean fragile = true;
+    private int id;
+    private static int nextId = 1;
 
     public Animal(){
         name = getClass().getSimpleName();
         exchangeRules = new ExchangeRules<>();
         setExchangeRules();
+        id = nextId;
+        nextId++;
     }
 
     protected abstract void setExchangeRules();
@@ -45,5 +49,14 @@ public abstract class Animal{
 
     public boolean isFragile() {
         return fragile;
+    }
+
+    @Override
+    public int compareTo(Animal o) {
+        if(id > o.id){
+            return 1;
+        }else if(id < o.id){
+            return -1;
+        }else return 0;
     }
 }

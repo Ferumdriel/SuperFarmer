@@ -42,4 +42,16 @@ public class DiceRollerTest {
         assertEquals(5, farm.getAmountOfBredAnimals(FarmAnimals.COW));
     }
 
+    @Test
+    public void givenSequenceOfRewardsAddExtraAnimals(){
+        diceRoller.giveRewards(new FarmAnimals[] {FarmAnimals.RABBIT, FarmAnimals.RABBIT});
+        assertEquals(1, farm.getAmountOfBredAnimals(FarmAnimals.RABBIT));
+        diceRoller.giveRewards(new FarmAnimals[] {FarmAnimals.RABBIT, FarmAnimals.RABBIT});
+        assertEquals(2, farm.getAmountOfBredAnimals(FarmAnimals.RABBIT));
+        diceRoller.giveRewards(new FarmAnimals[] {FarmAnimals.RABBIT, FarmAnimals.RABBIT});
+        assertEquals(4, farm.getAmountOfBredAnimals(FarmAnimals.RABBIT));
+        diceRoller.giveRewards(new FarmAnimals[] {FarmAnimals.RABBIT, FarmAnimals.RABBIT});
+        assertEquals(7, farm.getAmountOfBredAnimals(FarmAnimals.RABBIT));
+    }
+
 }
